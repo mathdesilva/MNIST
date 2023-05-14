@@ -1,6 +1,6 @@
 from torch import nn
 IMAGE_SIZE = 28 * 28
-class FashionMNISTModel_MLP_3(nn.Module):
+class ModelClass(nn.Module):
     def __init__(self):
         super().__init__()
         self.flatten = nn.Flatten()

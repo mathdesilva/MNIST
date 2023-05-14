@@ -4,7 +4,7 @@ import torchvision
 from PIL import Image
 import sys
 sys.path.append("../models")
-from models.model_class import FashionMNISTModel_MLP_3
+from models.model_class import ModelClass
 
 class Model():
     MODEL_PATH = pathlib.Path().absolute() / "models" / "model.pt"
@@ -12,7 +12,7 @@ class Model():
     def __init__(self):
         # Load model
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model = FashionMNISTModel_MLP_3().to(self.device)
+        self.model = ModelClass().to(self.device)
         self.model.load_state_dict(torch.load(self.MODEL_PATH))
         self.class_names = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt",
                             "Sneaker", "Bag", "Ankle boot"]
