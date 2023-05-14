@@ -14,6 +14,7 @@ class Model():
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = ModelClass().to(self.device)
         self.model.load_state_dict(torch.load(self.MODEL_PATH))
+        self.model.eval()
         self.class_names = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt",
                             "Sneaker", "Bag", "Ankle boot"]
 
