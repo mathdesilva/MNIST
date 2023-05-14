@@ -11,7 +11,7 @@ class Model():
 
     def __init__(self):
         # Load model
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cpu")
         self.model = ModelClass().to(self.device)
         self.model.load_state_dict(torch.load(self.MODEL_PATH))
         self.model.eval()
@@ -20,6 +20,7 @@ class Model():
 
     def predict(self, input):
         # Perform prediction
+        input = input.unsqueeze(0)
         result = self.model(input)
 
         return_value = {
